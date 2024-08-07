@@ -1,0 +1,156 @@
+<html>
+<head>
+<link rel="stylesheet"href="styles.css">
+</head> 
+<body> 
+  <header><h1 id="title">React Built-in Hooks</h1></header>
+<main id="main-doc">
+  <nav id="navbar">
+    <header id="navbar_title">Types of React Hooks</header>
+  <ul>
+    <li><a href="#State_Hooks" class="nav-link">State  Hooks</a></li>
+
+    <li><a href="#Context_Hooks" class="nav-link">Context Hooks</a></li>
+
+    <li> <a href="#Reference_Hooks" class="nav-link">Reference Hooks</a></li>
+
+    <li><a href="#Effect_Hooks" class="nav-link">Effect Hooks</a></li>
+
+    <li><a href="#Performance_Hooks" class="nav-link">Performance Hooks</a></li>
+
+    <li><a href="#Other_Hooks" class="nav-link">Other Hooks</a></li>
+
+    <li><a href="#Reference" class="nav-link">Reference</a></li>
+    </ul>
+  </nav>
+  
+  <div id="section-div">
+<header >React Hooks</header>
+<p>Hooks let you use different React features from your components. You can either use the built-in Hooks or combine them to build your own. This page lists all built-in Hooks in React.</p>
+<hr/>
+
+  <section class="main-section" id="State_Hooks">
+    <header>State Hooks</header>
+    <article>
+    <p>State lets a component “remember” information like user input. For example, a form component can use state to store the input value, while an image gallery component can use state to store the selected image index.</p>
+    <p>To add state to a component, use one of these Hooks:
+    <ul>
+      <li><a href="https://react.dev/reference/react/useState">useState: </a> declares a state variable that you can update directly.</li>
+      <li><a href="https://react.dev/reference/react/useReducer">useReducer: </a>declares a state variable with the update logic inside a reducer function.</li>
+    </ul>
+      <code>function ImageGallery() 
+        {
+        const [index, setIndex] =   useState(0);
+  // ...</code>
+    </p>
+    </article>
+  </section>
+<hr/>
+
+  <section class="main-section" id="Context_Hooks">
+    <header>Context Hooks</header>
+    <article>
+    <p>Context lets a component receive information from distant parents without passing it as props. For example, your app’s top-level component can pass the current UI theme to all components below, no matter how deep.</p>
+    <p>
+      <ul>
+        <li><a href="https://react.dev/reference/react/useContext">useContext: </a> reads and subscribes to a context.</li>
+        </ul>
+      <code>function Button() {
+  const theme = useContext(ThemeContext);
+  // ...</code>
+    </p>
+    </article>
+  </section>
+<hr/>
+
+  <section class="main-section" id="Reference_Hooks">
+    <header>Reference Hooks</header> 
+    <article>
+    <p>Refs let a component hold some information that isn’t used for rendering, like a DOM node or a timeout ID. Unlike with state, updating a ref does not re-render your component. Refs are an “escape hatch” from the React paradigm. They are useful when you need to work with non-React systems, such as the built-in browser APIs.</p>
+    <p>
+    <ul>
+      <li><a href="https://react.dev/reference/react/useRef">useRef: </a> declares a ref. You can hold any value in it, but most often it’s used to hold a DOM node.</li>
+      <li><a href="https://react.dev/reference/react/useImperativeHandle">useImperativeHandle: </a> lets you customize the ref exposed by your component. This is rarely used.</li>
+    </ul>
+      <code>function Form() {
+  const inputRef = useRef(null);
+  // ...</code>
+    </p>
+    </article>
+    </section>
+<hr/>
+
+  <section class="main-section" id="Effect_Hooks">
+   <header>Effect Hooks</header>
+   <article>
+   <p>Effects let a component connect to and synchronize with external systems. This includes dealing with network, browser DOM, animations, widgets written using a different UI library, and other non-React code.</p>
+   <p>
+     <ul>
+       <li><a href="https://react.dev/reference/react/useEffect">useEffect: </a> connects a component to an external system</li>
+       </ul>
+      <code>function ChatRoom({ roomId }) {
+  useEffect(() => {
+    const connection = createConnection(roomId);
+    connection.connect();
+    return () => connection.disconnect();
+  }, [roomId]);
+  // ...</code>
+  Effects are an “escape hatch” from the React paradigm. Don’t use Effects to orchestrate the data flow of your application. If you’re not interacting with an external system, you might not need an Effect.
+
+There are two rarely used variations of useEffect with differences in timing:
+  <ul>
+    <li><a href="https://react.dev/reference/react/useLayoutEffect">useLayoutEffect: </a>fires before the browser repaints the screen. You can measure layout here.</li>
+    <li><a href="https://react.dev/reference/react/useInsertionEffect">useInsertionEffect: </a> fires before React makes changes to the DOM. Libraries can insert dynamic CSS here.</li>
+  </ul>
+    </p>
+   </article>
+   </section>
+<hr/>
+
+  <section class="main-section" id="Performance_Hooks">
+    <header>Performance Hooks</header>
+    <article>
+    <p>A common way to optimize re-rendering performance is to skip unnecessary work. For example, you can tell React to reuse a cached calculation or to skip a re-render if the data has not changed since the previous render.</p>
+    <p>To skip calculations and unnecessary re-rendering, use one of these Hooks:
+      <ul>
+        <li><a href="https://react.dev/reference/react/useMemo">useMemo: </a> lets you cache the result of an expensive calculation.</li>
+        <li><a href="https://react.dev/reference/react/useCallback">useCallback: </a> lets you cache a function definition before passing it down to an optimized component.</li>
+    </ul>
+      <code>function TodoList({ todos, tab, theme }) {
+  const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
+  // ...
+}</code>To prioritize rendering, use one of these Hooks:
+<ul>
+  <li><a href="https://react.dev/reference/react/useTransition">useTransition: </a> lets you mark a state transition as non-blocking and allow other updates to interrupt it.</li>
+  <li><a href="https://react.dev/reference/react/useDeferredValue">useDeferredValue: </a>lets you defer updating a non-critical part of the UI and let other parts update first</li>
+</ul>
+    </p>
+    </article>
+    </section>
+   <hr/>
+
+  <section class="main-section" id="Other_Hooks">
+    <header>Other Hooks</header>
+    <article>
+    <p>These Hooks are mostly useful to library authors and aren’t commonly used in the application code.
+  <ul>
+    <li><a href="https://react.dev/reference/react/useDebugValue">useDebugValue: </a> lets you customize the label React DevTools displays for your custom Hook.</li>
+    <li><a href="https://react.dev/reference/react/useId">useId</a> lets a component associate a unique ID with itself. Typically used with accessibility APIs.</li>
+    <li><a href="https://react.dev/reference/react/useSyncExternalStore">useSyncExternalStore: </a> lets a component subscribe to an external store.</li>
+    <li><a href="https://react.dev/reference/react/useActionState">useActionState: </a> allows you to manage state of actions.</li>
+  </ul>
+    </p>
+    
+    </article>
+    </section>
+<hr/>
+
+<section class="main-section" id="Reference">
+  <header>Reference</header>
+  <p>All the information in this page is taken from React Built-in docs. For more information visit <a href="https://react.dev/reference/react/hooks" about="_blank">official documentation.</a></p>
+  </section>
+<div>
+</main>
+</body>
+</html>
+

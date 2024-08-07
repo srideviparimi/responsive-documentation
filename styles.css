@@ -1,0 +1,97 @@
+#title{
+    text-align:center;
+  }
+  #main-doc{
+    display:flex; 
+  }
+  #section-div{
+    margin-left:25px;
+    margin-right:25px;
+  }
+  #navbar{
+     width:33%;
+    height:auto;
+    position:fixed;
+  }
+  #navbar_title{
+    text-align:center;
+    margin:5px;
+    font-size:22px;
+    font-weight:200;
+  }
+  #navbar ul{
+    border-right:1px solid black;
+   
+    margin-left:0px;
+    line-height:1.5;
+  }
+  #navbar ul li a{
+    text-decoration:none;
+    color:black;
+    
+  }
+  #navbar ul li{
+    list-style-type:none;
+    padding:8px;
+    margin:0px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    border-left:1px solid black;
+  }
+  #section-div{
+    width:65%;
+    margin-left:35%;
+  }
+  #section-div header{
+    font-size:30px;
+    font-weight:150;
+  }
+  
+  hr{
+    color:lightgrey;
+  }
+  .main-section code{
+    width:80%;
+    height:auto;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:5%;
+    margin:5%;
+    display:block;
+    line-height:1.5;
+    border-radius:20px; 
+    white-space:pre-line;
+    background-color:#F5F5F5;
+  }
+  .main-section ul li{
+    line-height:1.5;
+  }
+  .main-section ul li a{
+    text-decoration:none;
+  background-color:#eafdfc;
+  border-radius:20px;
+  color:blue;
+  max-width:auto;
+  padding:2px;
+  }
+  .main-section ul li a:hover{
+    cursor:pointer;
+    text-decoration:underline;
+  }
+  @media screen and (max-width: 600px){
+  #main-doc{
+    display:block;
+    
+  }
+  #navbar{
+    position:relative;
+    width:100%;
+    
+  }
+  #section-div{
+    width:100%;
+    margin-left:0;
+  }
+  }
+  
+  
